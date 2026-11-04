@@ -1,15 +1,17 @@
 import React from 'react';
-import { creatorConfig } from '../config/creatorConfig';
-import { Star, Quote, Award } from 'lucide-react';
+import { useSiteData } from '../context/SiteDataContext';
+import { Star, Award } from 'lucide-react';
 
 export default function TestimonialsSection() {
+  const { siteData } = useSiteData();
+
   return (
     <section id="testimonials" className="py-24 relative bg-cine-900 border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-3">
             <Award className="w-3.5 h-3.5" />
-            <span>INDUSTRY REPUTATION</span>
+            <span>CREATOR &amp; BRAND RESULTS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
             TRUSTED BY{' '}
@@ -18,15 +20,15 @@ export default function TestimonialsSection() {
             </span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400">
-            Real feedback from high-growth YouTubers, global product brands, and digital agencies.
+            Real feedback from high-growth YouTubers, Indian D2C brands, and digital agencies working with {siteData.name}.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {creatorConfig.testimonials.map((testi, i) => (
+          {(siteData.testimonials || []).map((testi, i) => (
             <div
               key={i}
-              className="glass-card p-6 sm:p-7 rounded-2xl border border-white/10 flex flex-col justify-between hover:border-amber-500/30 transition-all"
+              className="glass-card glass-card-hover p-6 sm:p-7 rounded-2xl border border-white/10 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
@@ -41,7 +43,7 @@ export default function TestimonialsSection() {
                 </div>
 
                 <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed italic mb-6">
-                  "{testi.quote}"
+                  &ldquo;{testi.quote}&rdquo;
                 </p>
               </div>
 

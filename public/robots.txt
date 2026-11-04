@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /hire
+Allow: /quotation
+Disallow: /naveen
+
+Sitemap: https://naveenstudio.in/sitemap.xml
+

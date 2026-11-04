@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sliders, Eye, Sparkles, Check, Activity, Film } from 'lucide-react';
+import { Activity } from 'lucide-react';
 
 export default function ColorGradeLab({ onSelectForHire }) {
   const [sliderPos, setSliderPos] = useState(50);
@@ -11,22 +11,22 @@ export default function ColorGradeLab({ onSelectForHire }) {
       tag: 'Warm Filmic Tones',
       desc: 'Deep warm shadow halation, rich golden highlights, organic 35mm film grain, and creamy skin tone roll-off.',
       scopes: 'Shadows: -0.04 | Mids: +0.06 | Highlights: +0.12',
-      filterCss: 'contrast(125%) saturate(120%) sepia(20%) hue-rotate(-5deg) brightness(102%)'
+      filterCss: 'contrast(125%) saturate(120%) sepia(20%) hue-rotate(-5deg) brightness(102%)',
     },
     teal_orange: {
       name: 'Hollywood Blockbuster',
       tag: 'Teal & Amber Contrast',
       desc: 'Punchy complementary color separation. Cold cyan shadows with vibrant warm amber skin tones.',
       scopes: 'Shadows: Cyan +0.14 | Highlights: Amber +0.18',
-      filterCss: 'contrast(140%) saturate(135%) hue-rotate(10deg) brightness(100%)'
+      filterCss: 'contrast(140%) saturate(135%) hue-rotate(10deg) brightness(100%)',
     },
     noir: {
-      name: 'Tokyo Neon Cyberpunk',
+      name: 'Mumbai Neon Cyberpunk',
       tag: 'Electric Night Mood',
-      desc: 'Inky black levels with saturated magenta and cyan highlight bloom, ideal for night car and tech commercials.',
+      desc: 'Inky black levels with saturated magenta and cyan highlight bloom, ideal for night automotive and tech commercials.',
       scopes: 'Shadows: Deep Black | Highlights: Neon Violet +0.22',
-      filterCss: 'contrast(150%) saturate(155%) hue-rotate(25deg) brightness(95%)'
-    }
+      filterCss: 'contrast(150%) saturate(155%) hue-rotate(25deg) brightness(95%)',
+    },
   };
 
   const handleMouseMove = (e) => {
@@ -48,19 +48,19 @@ export default function ColorGradeLab({ onSelectForHire }) {
     <section id="color-lab" className="py-24 relative bg-cine-900 border-y border-white/10 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 mb-4">
             <Activity className="w-3.5 h-3.5 text-cyan-400" />
-            <span>DAVINCI RESOLVE COLOR SCIENCE</span>
+            <span>DAVINCI RESOLVE STUDIO 19 COLOR SCIENCE</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-4">
-            FLAT LOG TO{' '}
+            FLAT S-LOG3 TO{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-amber-400 bg-clip-text text-transparent">
-              HOLLYWOOD MASTER
+              CINEMA MASTER
             </span>
           </h2>
           <p className="text-sm sm:text-base text-zinc-400">
-            Drag the interactive slider below to inspect our color pipeline: from desaturated 10-bit S-Log3 camera sensor data to fully color-graded theatrical delivery.
+            Drag the interactive landscape slider below to inspect our color pipeline: from desaturated 10-bit S-Log3 sensor data to fully color-graded theatrical delivery.
           </p>
         </div>
 
@@ -69,11 +69,12 @@ export default function ColorGradeLab({ onSelectForHire }) {
           {Object.entries(gradePresets).map(([key, preset]) => (
             <button
               key={key}
+              type="button"
               onClick={() => setActiveGrade(key)}
               className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all flex items-center gap-2 ${
                 activeGrade === key
                   ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-400 shadow-lg shadow-cyan-500/10'
-                  : 'bg-white/5 text-zinc-400 hover:text-white border border-white/5'
+                  : 'bg-white/5 text-zinc-400 hover:text-white border border-white/10'
               }`}
             >
               <span>{preset.name}</span>
@@ -87,7 +88,7 @@ export default function ColorGradeLab({ onSelectForHire }) {
         {/* Interactive Comparison Slider */}
         <div className="max-w-5xl mx-auto">
           <div
-            className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/15 cursor-ew-resize select-none group"
+            className="cinema-dark relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-white/15 cursor-ew-resize select-none group"
             onMouseMove={handleMouseMove}
             onTouchMove={handleTouchMove}
           >
@@ -98,7 +99,7 @@ export default function ColorGradeLab({ onSelectForHire }) {
                 alt="Finished Color Graded Master"
                 className="w-full h-full object-cover"
                 style={{
-                  filter: gradePresets[activeGrade].filterCss
+                  filter: gradePresets[activeGrade].filterCss,
                 }}
               />
               <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-md text-xs font-mono font-bold bg-amber-500/90 text-cine-950 shadow-lg">
@@ -133,15 +134,15 @@ export default function ColorGradeLab({ onSelectForHire }) {
             </div>
 
             {/* Bottom Scopes Bar */}
-            <div className="absolute bottom-0 inset-x-0 bg-cine-950/85 backdrop-blur-md px-6 py-3 border-t border-white/10 flex items-center justify-between z-20 text-xs">
+            <div className="absolute bottom-0 inset-x-0 bg-black/85 backdrop-blur-md px-6 py-3 border-t border-white/10 flex items-center justify-between z-20 text-xs">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-cyan-400 font-semibold">ACEScc Pipeline</span>
                 <span className="hidden sm:inline text-zinc-500">&bull;</span>
-                <span className="hidden sm:inline font-mono text-zinc-400">
+                <span className="hidden sm:inline font-mono text-zinc-300">
                   {gradePresets[activeGrade].scopes}
                 </span>
               </div>
-              <span className="text-zinc-400 text-[11px] font-mono">
+              <span className="text-zinc-300 text-[11px] font-mono">
                 Drag slider across image
               </span>
             </div>
@@ -154,7 +155,7 @@ export default function ColorGradeLab({ onSelectForHire }) {
                 Color Precision
               </h4>
               <p className="text-xs text-zinc-400">
-                Calibrated Flanders OLED reference monitors ensuring flawless color playback on iPhones, MacBooks, and HDR TVs.
+                Calibrated OLED reference displays ensuring flawless color playback on iPhones, Androids, MacBooks, and 4K HDR TVs.
               </p>
             </div>
             <div className="glass-card p-4 rounded-xl border border-white/10">
@@ -162,21 +163,24 @@ export default function ColorGradeLab({ onSelectForHire }) {
                 Skin Tone Purity
               </h4>
               <p className="text-xs text-zinc-400">
-                Custom vectorscope power windows to isolate realistic skin undertones regardless of challenging ambient lighting.
+                Custom vectorscope power windows to isolate natural skin undertones regardless of challenging lighting.
               </p>
             </div>
-            <div className="glass-card p-4 rounded-xl border border-white/10 flex items-center justify-between">
+            <div className="glass-card p-4 rounded-xl border border-white/10 flex items-center justify-between gap-2">
               <div>
                 <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-1">
-                  Need Color Grading?
+                  Add Color Grading?
                 </h4>
                 <p className="text-xs text-zinc-400">
-                  Included in every project.
+                  Customize in ₹ Quotation or Hire Now.
                 </p>
               </div>
               <button
-                onClick={() => onSelectForHire('commercial', 'Color Grading Master')}
-                className="px-3.5 py-2 rounded-lg text-xs font-bold bg-amber-400 text-cine-950 hover:bg-amber-300 transition-colors"
+                type="button"
+                onClick={() =>
+                  onSelectForHire && onSelectForHire('commercial', 'Color Grading Master')
+                }
+                className="px-3.5 py-2 rounded-lg text-xs font-bold bg-amber-400 text-cine-950 hover:bg-amber-300 transition-colors shrink-0"
               >
                 Hire Colorist
               </button>

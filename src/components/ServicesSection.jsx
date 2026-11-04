@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, Film, Sparkles, CheckCircle, ArrowRight, Zap, Volume2, Palette, Video, Radio } from 'lucide-react';
+import { Camera, Film, Sparkles, ArrowRight, Zap } from 'lucide-react';
 
 export default function ServicesSection({ onOpenHireMe }) {
   const shootServices = [

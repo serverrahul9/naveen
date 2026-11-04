@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { creatorConfig } from '../config/creatorConfig';
+import { useSiteData } from '../context/SiteDataContext';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 
 export default function FAQSection() {
+  const { siteData } = useSiteData();
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
@@ -19,7 +20,7 @@ export default function FAQSection() {
         </div>
 
         <div className="space-y-3">
-          {creatorConfig.faqs.map((faq, i) => {
+          {(siteData.faqs || []).map((faq, i) => {
             const isOpen = openIdx === i;
             return (
               <div
@@ -29,7 +30,7 @@ export default function FAQSection() {
                 <button
                   type="button"
                   onClick={() => setOpenIdx(isOpen ? -1 : i)}
-                  className="w-full px-6 py-4.5 text-left flex items-center justify-between gap-4 hover:bg-white/5 transition-colors"
+                  className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 hover:bg-white/5 transition-colors"
                 >
                   <span className="font-display font-bold text-sm sm:text-base text-white">
                     {faq.q}
@@ -42,7 +43,7 @@ export default function FAQSection() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-5 pt-1 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-white/5 bg-black/20 animate-in fade-in duration-150">
+                  <div className="px-6 pb-5 pt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed border-t border-white/5 bg-black/20 animate-in fade-in duration-150">
                     {faq.a}
                   </div>
                 )}
