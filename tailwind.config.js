@@ -9,19 +9,19 @@ export default {
     extend: {
       colors: {
         cine: {
-          950: '#070709',
-          900: '#0d0e12',
-          850: '#13141a',
-          800: '#1a1b24',
-          700: '#262837',
-          600: '#383b4e',
-          500: '#565a75',
-          gold: '#e5a93c',
-          amber: '#f59e0b',
-          crimson: '#e11d48',
-          cyan: '#06b6d4',
+          950: '#06070c',
+          900: '#0c0e17',
+          850: '#111422',
+          800: '#171b2e',
+          700: '#232942',
+          600: '#353d5e',
+          500: '#56618a',
+          gold: '#8b5cf6',
+          amber: '#7c3aed',
+          crimson: '#f43f5e',
+          cyan: '#38bdf8',
           emerald: '#10b981',
-          purple: '#8b5cf6',
+          purple: '#a855f7',
         }
       },
       fontFamily: {
@@ -48,8 +48,8 @@ export default {
           '100%': { backgroundPosition: '200% 0' },
         },
         glow: {
-          '0%': { boxShadow: '0 0 15px rgba(245, 158, 11, 0.2)' },
-          '100%': { boxShadow: '0 0 38px rgba(245, 158, 11, 0.55)' },
+          '0%': { boxShadow: '0 0 15px rgba(139, 92, 246, 0.25)' },
+          '100%': { boxShadow: '0 0 38px rgba(236, 72, 153, 0.5)' },
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
@@ -58,7 +58,7 @@ export default {
       },
       backgroundImage: {
         'radial-gradient': 'radial-gradient(circle at center, var(--tw-gradient-stops))',
-        'film-grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.04'/%3E%3C/svg%3E\")",
+        'film-grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E\")",
       }
     },
   },

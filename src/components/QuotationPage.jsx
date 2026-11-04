@@ -322,61 +322,53 @@ export default function QuotationPage({ onNavigate }) {
                 </div>
               </div>
 
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {availableCustomizations.map((cust) => {
                   const isChecked = selectedCustIds.includes(cust.id);
                   return (
                     <div
                       key={cust.id}
                       onClick={() => toggleCustomization(cust.id)}
-                      className={`p-4 rounded-2xl cursor-pointer border transition-all flex items-center justify-between gap-4 ${
+                      className={`p-3 rounded-xl cursor-pointer border transition-all flex flex-col justify-between gap-2 ${
                         isChecked
-                          ? 'bg-cyan-500/15 border-cyan-400 shadow-md shadow-cyan-500/10'
+                          ? 'bg-violet-500/15 border-violet-400 shadow-md shadow-violet-500/10'
                           : 'bg-white/5 border-white/10 hover:bg-white/10'
                       }`}
                     >
-                      <div className="flex items-start gap-3.5 min-w-0">
-                        <div
-                          className={`w-5 h-5 rounded-md flex items-center justify-center mt-0.5 shrink-0 transition-colors ${
-                            isChecked
-                              ? 'bg-cyan-400 text-cine-950'
-                              : 'border border-zinc-500 bg-black/20'
-                          }`}
-                        >
-                          {isChecked && <Check className="w-3.5 h-3.5 stroke-[3]" />}
-                        </div>
+                      <div className="flex items-start justify-between gap-2">
+                        <div className="flex items-start gap-2.5 min-w-0">
+                          <div
+                            className={`w-4 h-4 rounded flex items-center justify-center mt-0.5 shrink-0 transition-colors ${
+                              isChecked
+                                ? 'bg-violet-500 text-white keep-white'
+                                : 'border border-zinc-500 bg-black/20'
+                            }`}
+                          >
+                            {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
+                          </div>
 
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-2 flex-wrap">
-                            <h3 className="font-display font-bold text-sm sm:text-base text-white">
+                          <div className="min-w-0">
+                            <h3 className="font-display font-bold text-xs sm:text-sm text-white leading-snug">
                               {cust.name}
                             </h3>
-                            {cust.category && (
-                              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
-                                {cust.category}
-                              </span>
-                            )}
-                            {cust.popular && (
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">
-                                Popular
-                              </span>
-                            )}
+                            <p className="text-[11px] text-zinc-400 line-clamp-2 mt-0.5">
+                              {cust.description}
+                            </p>
                           </div>
-                          <p className="text-xs text-zinc-400 mt-0.5">
-                            {cust.description}
-                          </p>
                         </div>
                       </div>
 
-                      <div className="text-right shrink-0">
-                        <div
-                          className={`font-mono font-bold text-sm sm:text-base ${
-                            isChecked ? 'text-emerald-400' : 'text-amber-400'
+                      <div className="pt-2 border-t border-white/5 flex items-center justify-between">
+                        <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/10 text-zinc-300">
+                          {cust.category || 'Add-On'}
+                        </span>
+                        <span
+                          className={`font-mono font-bold text-xs sm:text-sm ${
+                            isChecked ? 'text-emerald-400' : 'text-violet-400'
                           }`}
                         >
-                          +{formatINR(cust.pricePerVideo)}
-                        </div>
-                        <div className="text-[10px] font-mono text-zinc-400">per video</div>
+                          +{formatINR(cust.pricePerVideo)}/vid
+                        </span>
                       </div>
                     </div>
                   );

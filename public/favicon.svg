@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fbbf24" />
-      <stop offset="50%" stop-color="#f59e0b" />
-      <stop offset="100%" stop-color="#d97706" />
+    <linearGradient id="proGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8b5cf6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#ec4899" />
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="22" fill="#070709" />
-  <rect x="4" y="4" width="92" height="92" rx="19" fill="none" stroke="url(#goldGrad)" stroke-width="3.5" opacity="0.85" />
+  <rect width="100" height="100" rx="22" fill="#06070c" />
+  <rect x="4" y="4" width="92" height="92" rx="19" fill="none" stroke="url(#proGrad)" stroke-width="4" />
   <path
     d="M27 74V26H39.5L61.5 57.5V26H73V74H60.5L38.5 42.5V74H27Z"
-    fill="url(#goldGrad)"
+    fill="url(#proGrad)"
   />
 </svg>
